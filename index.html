@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyansh Masiyava - Portfolio | Web Development | Python | Data Analysis | AI Enthusiast</title>
+    <meta name="description" content="Priyansh Masiyava - Portfolio showcasing Web Development, Python, Data Analysis, and AI projects. Passionate about building real-world solutions using modern technologies.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 2rem !important; }
+            h3 { font-size: 1.25rem !important; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Touch-friendly interactions for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .card-hover:active {
+                transform: translateY(-2px);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            min-height: 44px; /* Touch-friendly button size */
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .skill-badge:active {
+                transform: scale(1.05);
+            }
+        }
+
+        .project-card {
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #667eea;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+            min-height: 44px; /* Touch-friendly */
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .profile-image {
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Better spacing on mobile */
+        @media (max-width: 640px) {
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Prevent horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Better touch targets */
+        @media (max-width: 768px) {
+            a, button {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold gradient-text">Priyansh Masiyava</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Education</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">About</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Skills</a>
+                <a href="#education" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Education</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0 fade-in-up">
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 gradient-text">Priyansh Masiyava</h2>
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6">Web Development | Python | Data Analysis | AI Enthusiast</p>
+                    <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">Building innovative solutions with modern technologies and artificial intelligence</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="Resume(Priyansh).pdf" download class="btn-primary text-white px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="bg-white text-purple-600 border-2 border-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition inline-flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in-up">
+                    <img src="1.jpeg" alt="Priyansh Masiyava - Portfolio Photo" class="profile-image rounded-full w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl font-bold text-center mb-16">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 card-hover">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        I am passionate about <span class="font-semibold text-purple-600">Artificial Intelligence</span>, <span class="font-semibold text-purple-600">Python programming</span>, <span class="font-semibold text-purple-600">Web Development</span>, and <span class="font-semibold text-purple-600">Data Analysis</span>. I actively participate in hackathons, online learning, and personal projects.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        I like building real-world solutions using AI tools and modern web technologies. I believe in continuous learning, problem solving, teamwork, and research-based projects.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-8">
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">Hackathon Participant</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">Continuous Learner</span>
+                        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">Problem Solver</span>
+                        <span class="bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-medium">Team Player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl font-bold text-center mb-16">Skills & Technologies</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fas fa-code text-4xl text-purple-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">Web Development</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-python text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">Python</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fas fa-brain text-4xl text-pink-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fas fa-chart-line text-4xl text-green-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">Data Analysis</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-html5 text-4xl text-orange-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">HTML</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">CSS</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-js text-4xl text-yellow-500 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">JavaScript</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-react text-4xl text-cyan-500 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">React</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-git-alt text-4xl text-red-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">Git</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fab fa-github text-4xl text-gray-800 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">GitHub</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fas fa-robot text-4xl text-purple-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">AI Tools</h3>
+                    </div>
+                    <div class="skill-badge bg-white p-6 rounded-xl text-center card-hover cursor-pointer">
+                        <i class="fas fa-database text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="font-semibold text-gray-800">Data Science</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl font-bold text-center mb-16">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-8 rounded-2xl card-hover">
+                    <div class="flex items-start">
+                        <div class="bg-purple-600 text-white p-4 rounded-full mr-6">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Diploma in Computer Engineering</h3>
+                            <p class="text-purple-600 font-semibold mb-2">Completed</p>
+                            <p class="text-gray-600">Specialized in Computer Engineering with focus on programming, web development, and software engineering principles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl card-hover">
+                    <div class="flex items-start">
+                        <div class="bg-blue-600 text-white p-4 rounded-full mr-6">
+                            <i class="fas fa-school text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">10th Standard</h3>
+                            <p class="text-blue-600 font-semibold mb-2">Completed</p>
+                            <p class="text-gray-600">Successfully completed secondary education with strong foundation in mathematics and science.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl font-bold text-center mb-8">Featured Projects</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">A collection of my web development, AI, and machine learning projects showcasing practical solutions and innovative applications.</p>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700" data-filter="ai-ml">
+                    AI & ML Projects
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI & ML Projects -->
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-user-check text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Smart Attendance System</h3>
+                    <p class="text-gray-600 mb-4">Face recognition based attendance system using computer vision and machine learning algorithms.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">AI</span>
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Computer Vision</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-smile text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Emotion Detection from Text</h3>
+                    <p class="text-gray-600 mb-4">NLP based emotion detection system that analyzes text and identifies emotional sentiment.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">NLP</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">ML</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-red-100 to-orange-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-shield-alt text-4xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Spam Email Detection</h3>
+                    <p class="text-gray-600 mb-4">Machine learning model to classify and filter spam emails with high accuracy.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">ML</span>
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Classification</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-green-100 to-teal-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-comments text-4xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI Chatbot</h3>
+                    <p class="text-gray-600 mb-4">Intelligent chatbot using natural language processing for interactive conversations.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">AI</span>
+                        <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">NLP</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-film text-4xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Movie Recommendation System</h3>
+                    <p class="text-gray-600 mb-4">Content-based recommendation system that suggests movies based on user preferences.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">ML</span>
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Recommendation</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="ai-ml">
+                    <div class="bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-laugh text-4xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Face Emotion Recognition</h3>
+                    <p class="text-gray-600 mb-4">Real-time emotion detection from facial expressions using computer vision.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">Computer Vision</span>
+                        <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-sm">Deep Learning</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <!-- Web Development Projects -->
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-shopping-cart text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Flipkart Clone Website</h3>
+                    <p class="text-gray-600 mb-4">Full-featured e-commerce website clone with shopping cart and product listings.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-user-circle text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                    <p class="text-gray-600 mb-4">Modern and responsive personal portfolio website showcasing projects and skills.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-check-square text-4xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">To-Do App</h3>
+                    <p class="text-gray-600 mb-4">Task management application with add, edit, and delete functionality.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">LocalStorage</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-cloud-sun text-4xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Weather App</h3>
+                    <p class="text-gray-600 mb-4">Real-time weather application using weather API for location-based forecasts.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm">API</span>
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-sticky-note text-4xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Notes App</h3>
+                    <p class="text-gray-600 mb-4">Simple note-taking application with create, read, update, and delete features.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm">CRUD</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-orange-100 to-red-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-question-circle text-4xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Quiz App</h3>
+                    <p class="text-gray-600 mb-4">Interactive quiz application with multiple choice questions and score tracking.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Interactive</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-indigo-100 to-blue-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-blog text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Blog Website</h3>
+                    <p class="text-gray-600 mb-4">Blogging platform with post creation, categories, and comment functionality.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">CSS</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-teal-100 to-green-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-store text-4xl text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">E-commerce Frontend</h3>
+                    <p class="text-gray-600 mb-4">Modern e-commerce frontend design with product showcase and shopping features.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Responsive</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-rose-100 to-pink-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-graduation-cap text-4xl text-rose-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Student Result Management</h3>
+                    <p class="text-gray-600 mb-4">Web-based system to manage and display student results and academic records.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">Database</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-violet-100 to-purple-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-sign-in-alt text-4xl text-violet-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Login System</h3>
+                    <p class="text-gray-600 mb-4">Secure user authentication system with registration and login functionality.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full text-sm">Authentication</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Security</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-wallet text-4xl text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Personal Finance Tracker</h3>
+                    <p class="text-gray-600 mb-4">Financial management app to track income, expenses, and savings effectively.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">Charts</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+                <div class="project-card bg-white rounded-xl p-6 card-hover" data-category="web">
+                    <div class="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg p-4 mb-4">
+                        <i class="fas fa-calculator text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Basic Calculator</h3>
+                    <p class="text-gray-600 mb-4">Simple and elegant calculator app with basic arithmetic operations.</p>
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm">Math</span>
+                    </div>
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="btn-primary text-white px-6 py-2 rounded-full inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-4xl font-bold text-center mb-8">Get In Touch</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Feel free to reach out for collaborations, project discussions, or just to say hello. I am always open to new opportunities and connections.</p>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="mailto:priyansh.masiyava@gmail.com" class="bg-gradient-to-br from-red-50 to-pink-50 p-8 rounded-2xl card-hover flex items-start">
+                    <div class="bg-red-600 text-white p-4 rounded-full mr-6">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Email</h3>
+                        <p class="text-gray-600">priyansh.masiyava@gmail.com</p>
+                    </div>
+                </a>
+
+                <a href="tel:7383910106" class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl card-hover flex items-start">
+                    <div class="bg-green-600 text-white p-4 rounded-full mr-6">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Phone</h3>
+                        <p class="text-gray-600">+91 7383910106</p>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/in/priyansh-masiyava/" target="_blank" class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl card-hover flex items-start">
+                    <div class="bg-blue-600 text-white p-4 rounded-full mr-6">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
+                        <p class="text-gray-600">linkedin.com/in/priyansh-masiyava/</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/PriyanshMasiyava" target="_blank" class="bg-gradient-to-br from-gray-50 to-slate-50 p-8 rounded-2xl card-hover flex items-start">
+                    <div class="bg-gray-800 text-white p-4 rounded-full mr-6">
+                        <i class="fab fa-github text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">GitHub</h3>
+                        <p class="text-gray-600">github.com/PriyanshMasiyava</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold gradient-text">Priyansh Masiyava</h3>
+                    <p class="text-gray-400 mt-2">Web Development | Python | Data Analysis | AI Enthusiast</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/PriyanshMasiyava" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/priyansh-masiyava/" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="mailto:priyansh.masiyava@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Priyansh Masiyava. All rights reserved. Built with passion and modern web technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else if (card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-purple-600');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-purple-600');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
